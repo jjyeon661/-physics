@@ -1,0 +1,36 @@
+#include <math.h>
+#include <stdio.h>
+
+int main(void) {
+    // 파이 값 
+    const double PI = 3.1415926;
+    double result = 0;
+
+
+    //  각도(45도)에서의 sin, cos, tan 값 출력
+    int x = 45;
+    double a = sin(x * PI / 180);
+    double b = cos(x * PI / 180);
+    double c = tan(x * PI / 180);
+
+    printf("=== 특정 각도 (45도) 삼각함수 값 ===\n");
+    printf("sin(%d * PI / 180) : %lf\n", x, a);
+    printf("cos(%d * PI / 180) : %lf\n", x, b);
+    printf("tan(%d * PI / 180) : %lf\n\n", x, c);
+
+    // sin, cos 값 출력 (0 ~ 90도)
+    printf("=== 1. sin, cos 값 (0도 ~ 90도) ===\n");
+    for (int x = 0; x <= 90; x += 10) {
+        result = (double)x * PI / 180;  // 도 -> 라디안 변환
+        printf("sin(%2d) = %.4lf || cos(%2d) = %.4lf\n", x, sin(result), x, cos(result));
+    }
+
+    // tan 값 출력 (-45 ~ 45도)
+    printf("\n=== 2. tan 값 (-45도 ~ 45도) ===\n");
+    for (int x = -45; x <= 45; x += 5) {
+        result = (double)x * PI / 180;  // 도 -> 라디안 변환
+        printf("tan(%3d) = %.4lf\n", x, tan(result));
+    }
+
+    return 0;
+}
